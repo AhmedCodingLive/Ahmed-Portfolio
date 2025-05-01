@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css"> <link rel="shortcut icon" href="Images/Ahmed photo.png" type="image/x-icon">
     <title>Ahmed Portfolio</title>
 </head>
 <body>
@@ -14,11 +14,45 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Gallery</a></li>
+                <li><a href="#blog">Insights</a></li>
+                <li class="dropdown">
+                    <a href="#">Media</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">YouTuber</a></li>
+                      <li><a href="#">Web Designer</a></li>
+                      <li><a href="#">Games</a></li>
+                      <li><a href="#">Digital Artist</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
+        <div id="content" class="content-flex">
+            <div class="text">
+                <h1>I am <span>coder</span></h1>
+                <br>
+                <p>A passionate YouTuber and web developer with experience in content creation and website development. Started a YouTube channel in 2018, creating engaging videos and building an audience. Transitioned into web development in 2019, <strong>about more click blue button below</strong></p>
+
+            <button>About me</button>
+            </div>
+
+            <img src="Images/Ahmed photo.png" alt="Ahmed photo with blue background" width="500px">
+            <br>
+        </div>        
     </header>
+    <section id="blog" class="blog-content">
+            <h1>Insights</h1>
+            <div class="blog-flex">
+                <div class="blog-1"></div>
+                <div class="blog-2"></div>
+                <div class="blog-3"></div>
+                <button>See more</button>
+            </div>
+    </section>
+
+    <section id="media">
+        <h1>Media</h1>
+    </section>
 </body>
 </html>
