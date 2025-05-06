@@ -82,7 +82,7 @@ body {
 /* main content */
 .content-flex {
     display: flex;
-    margin: 20px 20px;
+    margin: 10px 20px;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
@@ -206,12 +206,33 @@ body {
 
 #media h1 {
     font-size: 40px;
+    margin-bottom: 100px;
 }
 
 #media h2 {
     text-align: left;
     padding-left: 20px;
     margin-bottom: 40px;
+}
+.media-Youtube-flex .youtube-videos {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.youtube-video-1 img, .youtube-video-2 img, .youtube-video-3 img, .youtube-video-4 img {
+    border-radius: 30px;
+    border: #ff0000 solid 1px;
+}
+
+.youtube-video-1 p, .youtube-video-2 p, .youtube-video-3 p, .youtube-video-4 p {
+    width: 300px;
+}
+.media-Youtube-flex button{
+    margin: 10;
+    padding: 12px 15px;
 }
 
 /* Responsive */
