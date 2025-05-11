@@ -16,7 +16,7 @@ body {
 .container {
     width: 100%;
     height: 700px;
-    border-bottom: #999 solid 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .navbar {
@@ -102,7 +102,6 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     padding: 40px 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .content-flex .text {
@@ -144,7 +143,7 @@ body {
 /* Blog section */
 #blog {
     width: 100%;
-    height: 600px;
+    height: 800px;
     text-align: center;
     padding-top: 40px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
@@ -165,7 +164,6 @@ body {
 .blog-1, .blog-2, .blog-3 {
     width: 400px;
     height: 450px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* horizontal centering */
