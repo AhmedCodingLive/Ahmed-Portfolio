@@ -1,116 +1,135 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-/* main */
+/* ========== main ========== */
 .container {
-    width: 100%;
-    height: 700px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  min-height: 100vh;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.45);
 }
 
 .navbar {
-    width: 100%;
-    height: 60px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
 }
 
 .navbar {
-    position: fixed; /* or fixed if preferred */
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    transition: box-shadow 0.3s ease;
+  position: fixed; /* or fixed if preferred */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
 }
 
 .navbar.scrolled {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); /* Add shadow when scrolled */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); /* Add shadow when scrolled */
 }
 
 .logo h1 {
-    font-size: 24px;
-    color: #333;
+  font-size: 24px;
+  color: #333;
 }
 
 .logo span {
-    color: #ff0000; /* Red color for "Ahmed" */
+  color: #ff0000; /* Red color for "Ahmed" */
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+  list-style: none;
+  display: flex;
+  gap: 30px;
 }
 
 .nav-links li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-    color: #007BFF;
+  color: #007bff;
 }
 
-/* Dropdown menu */
+/* ========== Dropdown menu ========== */
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    padding: 10px 0;
-    min-width: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px 0;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 .dropdown-menu li {
-    padding: 8px 20px;
-    list-style: none;
+  padding: 8px 20px;
+  list-style: none;
 }
 
 .dropdown-menu li a {
-    color: #333;
-    display: block;
+  color: #333;
+  display: block;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
-/* main content */
+.text-changer {
+  font-weight: bold;
+  color: #ff0000;
+  transition: opacity 0.5s ease;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1000ms infinite;
+  color: #000000;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ========== main content ========== */
 .content-flex {
-    display: flex;
-    margin: 10px 20px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 40px 20px;
+  display: flex;
+  margin: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
 }
 
 .content-flex .text {
-    flex: 1 1 200px;
-    padding: 50px 220px 60px 40px;
+  flex: 1 1 200px;
+  padding: 50px 220px 60px 40px;
 }
 
 .content-flex .text h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .content-flex .text p {
@@ -118,9 +137,9 @@ body {
 }
 
 .content-flex button {
-    margin-top: 24px;
-    padding: 12px 15px;
-    font-size: 20px;
+  margin-top: 24px;
+  padding: 12px 15px;
+  font-size: 20px;
     color: #ffffff;
     background-color: #0119f3;
     font-weight: 700;
@@ -128,205 +147,378 @@ body {
 }
 
 .content-flex button:hover {
-    background-color: #007BFF;
+    background-color: #007bff;
 }
 
 .content-flex img {
-    flex: 0 0 300px;
+  flex: 0 0 300px;
     max-width: 100%;
     height: auto;
     padding: 50px;
     object-fit: cover;
     border-radius: 50%;
-}
-
-/* Blog section */
-#blog {
-    width: 100%;
-    height: 800px;
-    text-align: center;
-    padding-top: 40px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-}
-
-.blog-content h1 {
-    font-size: 50px;
-    margin: 0 0 50px 0;
-}
-
-.blog-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.blog-1, .blog-2, .blog-3 {
-    width: 400px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* horizontal centering */
-    justify-content: flex-start; /* start from top */
-    position: relative; /* allows controlled positioning if needed */
-    text-align: center;
-}
-
-.blog-1 img, .blog-2 img, .blog-3 img {
-    width: 398px; /* or whatever fits your design */
-    height: auto;
-    margin-bottom: 20px; /* space below the image */
-}
-.blog-1 h2, .blog-2 h2, .blog-3 h2 {
-    text-align: left;
-    margin-bottom: 10px;
-    padding-left: 20px;
-}
-
-.blog-1 p, .blog-2 p, .blog-3 p {
-    text-align: left;
-    padding-left: 20px;
-}
-
-.blog-content button {
-    margin-top: 50px;
-    padding: 12px 15px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #0119f3;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.blog-content button:hover {
-    background-color: #007BFF;
-}
-
-#blog::after {
-    content: "";
-    display: block;
-    width: 80%;
-    margin: 60px auto 0 auto;
-}
-
-/* Media */
-#media {
-    width: 100%;
-    height: 1700px;
-    text-align: center;
-    /* padding-top: 40px; */
-    margin-top: 200px;
-    background-color: #fff;
-    /* border: #333 solid 1px; */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-
-}
-
-#media h1 {
-    /* color: #fff; */
-    font-size: 40px;
-    margin-bottom: 100px;
-    padding-top: 40px;
-}
-
-#media h2 {
-    /* color: #fff; */
-    text-align: left;
-    padding-left: 20px;
-    margin-bottom: 40px;
-}
-
-.media-Youtube-flex .youtube-videos {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.youtube-video-1 img, .youtube-video-2 img, .youtube-video-3 img, .youtube-video-4 img {
-    border-radius: 30px;
-    border: #ff0000 solid 1px;
-    margin-bottom: 10px;
-}
-
-.youtube-video-1 p, .youtube-video-2 p, .youtube-video-3 p, .youtube-video-4 p {
-    width: 300px;
-    /* color: #fff; */
-}
-
-.media-Youtube-flex button{
-    margin: 10;
-    padding: 12px 15px;
-    background-color: #0119f3;
-    color: #ffffff;
-    font-size: 20px;
-}
-
-.media-Digital-Artist-flex .instagram-post-flex {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.media-Digital-Artist-flex .instagram-heading{
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.instagram-post-1 img, .instagram-post-2 img, .instagram-post-3 img, .instagram-post-4 img {
-    border-radius: 30px;
-    border: #ff0000 solid 1px;
-    margin-bottom: 10px;
-}
-
-.instagram-post-1 p, .instagram-post-2 p, .instagram-post-3 p, .instagram-post-4 p {
-    width: 300px;
-    /* color: #fff; */
-}
-
-.media-Digital-Artist-flex button{
-    margin: 10;
-    padding: 12px 15px;
-    background-color: #0119f3;
-    color: #fbfbfb;
-    font-size: 20px;
-}
-
-/* About */
-#about {
+  }
+  
+  /* ========== About ========== */
+  #about {
     padding-top: 80px;
-    height: 1000px;
-    text-align: center;
+    min-height: 100vh;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #about .about-h1 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
-/* Responsive */
+.about-flex {
+  display: flex;
+  position: relative;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-flex .about-img{
+  margin: 0 0 0 30px;
+  max-width: 100%;
+  width: 322px; /* or any fixed width that fits nicely */
+  height: 500px;
+  object-fit: fill; /* maintains good cropping if needed */
+  border-radius: 8px; /* optional for better visuals */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* optional */
+}
+
+.about-text p{
+  margin: 0px 50px;
+  font-size: 24px;
+  text-align: left;
+  font-family: cursive;
+}
+
+.about-btn {
+  margin: 20px 0;
+  padding: 12px 15px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #0119f3;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* ========== Blog section ========== */
+#blog {
+  width: 100%;
+    min-height: 100vh;
+    padding-bottom: 24px;
+    text-align: center;
+    padding-top: 40px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.45);
+  }
+  
+  .blog-content h1 {
+  font-size: 50px;
+  margin-bottom:50px;
+  padding-top: 50px;
+}
+
+.blog-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.blog-1,
+.blog-2,
+.blog-3 {
+  width: 400px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* horizontal centering */
+  justify-content: flex-start; /* start from top */
+  position: relative; /* allows controlled positioning if needed */
+  text-align: center;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.45);
+}
+
+.blog-1 img,
+.blog-2 img,
+.blog-3 img {
+  width: 398px; /* or whatever fits your design */
+  height: auto;
+  margin-bottom: 20px; /* space below the image */
+}
+.blog-1 h2,
+.blog-2 h2,
+.blog-3 h2 {
+  text-align: left;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.blog-1 p,
+.blog-2 p,
+.blog-3 p {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.blog-content button {
+  margin: 30px;
+  align-self: center;
+  padding: 12px 15px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #0119f3;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.blog-content button:hover {
+  background-color: #007bff;
+}
+
+#blog::after {
+  content: "";
+  display: block;
+  width: 80%;
+  margin: 60px auto 0 auto;
+}
+
+/* ========== Media ========== */
+#media {
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  margin-top: 8px;
+  background-color: #fff;
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.45);
+}
+
+#media h1 {
+  /* color: #fff; */
+  font-size: 40px;
+  margin-bottom: 100px;
+  padding-top: 40px;
+}
+
+#media h2 {
+  /* color: #fff; */
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+
+.media-Youtube-flex .youtube-videos {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.youtube-video-1 img,
+.youtube-video-2 img,
+.youtube-video-3 img,
+.youtube-video-4 img {
+  border-radius: 30px;
+  border: #ff0000 solid 1px;
+  margin-bottom: 10px;
+}
+
+.youtube-video-1 p,
+.youtube-video-2 p,
+.youtube-video-3 p,
+.youtube-video-4 p {
+  width: 300px;
+  /* color: #fff; */
+}
+
+.media-Youtube-flex button {
+  margin: 10;
+  padding: 12px 15px;
+  background-color: #0119f3;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.media-Digital-Artist-flex .instagram-post-flex {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.media-Digital-Artist-flex .instagram-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.instagram-post-1 img,
+.instagram-post-2 img,
+.instagram-post-3 img,
+.instagram-post-4 img {
+  border-radius: 30px;
+  border: #ff0000 solid 1px;
+  margin-bottom: 10px;
+}
+
+.instagram-post-1 p,
+.instagram-post-2 p,
+.instagram-post-3 p,
+.instagram-post-4 p {
+  width: 300px;
+  /* color: #fff; */
+}
+
+.media-Digital-Artist-flex button {
+  margin: 10;
+  padding: 12px 15px;
+  background-color: #0119f3;
+  color: #fbfbfb;
+  font-size: 20px;
+}
+
+.media-games {
+  margin: 10px 0 30px 20px;
+}
+
+.games-flex {
+  display: flex;
+  justify-content: left;
+}
+.games-flex img{
+  cursor: pointer;
+}
+.instagram-post-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  
+}
+
+.insta-card {
+  flex: 0 0 auto;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  padding: 10px;
+}
+
+.insta-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info strong {
+  display: block;
+  font-size: 14px;
+}
+
+.user-info span {
+  font-size: 12px;
+  color: gray;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 220px; /* Adjust as needed */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.post-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.insta-actions {
+  font-size: 18px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.insta-actions a {
+  text-decoration: none;
+}
+
+.insta-caption {
+  font-size: 14px;
+  color: #333;
+}
+
+.see-more-btn {
+  margin: 20px auto;
+  display: flex;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  background-color: #3897f0;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ========== Contact section ========== */
+
+#contact{
+  height: 400px;
+  padding-top: 50px;
+  text-align: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+}
+#contact h1{
+  font-size: 50px;
+  padding: 10px;
+}
+
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
-    .content-flex {
-        flex-direction: column;
-        text-align: center;
-    }
+  .content-flex {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .content-flex .text,
-    .content-flex img {
-        padding: 10px 0;
-    }
+  .content-flex .text,
+  .content-flex img {
+    padding: 10px 0;
+  }
 
-    .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-    }
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 10px;
-    }
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
 }
