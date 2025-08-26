@@ -364,7 +364,13 @@ body {
 .project1, .project2 {
   margin: 20px;
 }
-.project1, .project2 h3 {
+.project1 img {
+  width: 350px;
+} 
+.project2 img {
+  width: 435px;
+}
+.project1 h3, .project2 h3 {
   padding-top: 20px;
 }
 
@@ -415,9 +421,19 @@ body {
   display: flex;
   justify-content: left;
 }
-.games-flex .game-btn{
-  
+
+.game-btn{
+  margin: 10;
+  padding: 12px 15px;
+  background-color: #0119f3;
 }
+
+.game-btn a{
+  color: #fbfbfb;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 .games-flex img {
   cursor: pointer;
 }
