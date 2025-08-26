@@ -318,7 +318,7 @@ body {
   margin-bottom: 40px;
 }
 
-.media-Youtube-flex .youtube-videos {
+.media-youtube-flex .youtube-videos {
   display: flex;
   align-content: center;
   justify-content: center;
@@ -343,12 +343,29 @@ body {
   /* color: #fff; */
 }
 
-.media-Youtube-flex button {
+.media-youtube-flex button {
   margin: 10;
   padding: 12px 15px;
   background-color: #0119f3;
   color: #ffffff;
   font-size: 20px;
+}
+
+.media-youtube-flex button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.media-web-flex .web-projects{
+  display: flex;
+  justify-content: center;
+}
+
+.project1, .project2 {
+  margin: 20px;
+}
+.project1, .project2 h3 {
+  padding-top: 20px;
 }
 
 .media-Digital-Artist-flex .instagram-post-flex {
@@ -388,6 +405,7 @@ body {
   color: #fbfbfb;
   font-size: 20px;
 }
+
 
 .media-games {
   margin: 10px 0 30px 20px;
@@ -487,6 +505,11 @@ body {
   color: white;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.see-more-btn a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* ========== Contact section ========== */
