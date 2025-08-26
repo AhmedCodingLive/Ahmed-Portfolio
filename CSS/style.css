@@ -307,6 +307,8 @@ body {
   min-height: 100vh;
   text-align: center;
   margin-top: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
   background-color: #fff;
   box-shadow: 0 7px 8px rgba(0, 0, 0, 0.45);
 }
@@ -356,6 +358,9 @@ body {
   background-color: #0119f3;
   color: #ffffff;
   font-size: 20px;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .media-youtube-flex button a {
@@ -390,6 +395,9 @@ body {
   padding: 10px;
   background: #0119f3;
   color: #fff;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
   text-decoration: none;
 } 
 
@@ -398,6 +406,9 @@ body {
   padding: 10px;
   background: #0119f3;
   color: #fff;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -437,6 +448,9 @@ body {
   background-color: #0119f3;
   color: #fbfbfb;
   font-size: 20px;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 
@@ -453,12 +467,15 @@ body {
   margin: 10;
   padding: 12px 15px;
   background-color: #0119f3;
+  border-radius: 20px;
 }
 
 .game-btn a{
   color: #fbfbfb;
   font-size: 20px;
   text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .games-flex img {
@@ -557,6 +574,9 @@ body {
 .see-more-btn a {
   color: #fff;
   text-decoration: none;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 /* ========== Contact section ========== */
