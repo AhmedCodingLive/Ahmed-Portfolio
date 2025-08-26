@@ -130,20 +130,20 @@ body {
   font-size: 20px;
 }
 
-   .content-text .text p span {
-      opacity: 0;
-      display: inline-block;
-      animation: fadeIn 1s both;
-    }
-
+.content-text .text p span {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 1s both;
+}
 
 .content-flex button {
   margin-top: 24px;
   padding: 12px 15px;
   font-size: 20px;
-  color: #ffffff;
   background-color: #0119f3;
+  color: #fff;
   font-weight: 700;
+  border-radius: 30px;
   cursor: pointer;
 }
 
@@ -192,7 +192,7 @@ body {
 
 .about-text p {
   margin: 0px 50px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: left;
   font-family: cursive;
 }
@@ -207,10 +207,15 @@ body {
   margin: 20px 0;
   padding: 12px 15px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   background-color: #0119f3;
-  font-weight: 700;
   font-size: 20px;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.about-btn:hover {
+  background-color: #007bff;
 }
 
 /* ========== Blog section ========== */
@@ -257,6 +262,7 @@ body {
   height: auto;
   margin-bottom: 20px; /* space below the image */
 }
+
 .blog-1 h2,
 .blog-2 h2,
 .blog-3 h2 {
@@ -280,6 +286,7 @@ body {
   color: #fff;
   background-color: #0119f3;
   font-weight: 700;
+  border-radius: 20px;
   cursor: pointer;
 }
 
@@ -364,14 +371,34 @@ body {
 .project1, .project2 {
   margin: 20px;
 }
+
 .project1 img {
   width: 350px;
 } 
+
 .project2 img {
   width: 435px;
 }
+
 .project1 h3, .project2 h3 {
   padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.project1 a {
+  font-size: 16px;
+  padding: 10px;
+  background: #0119f3;
+  color: #fff;
+  text-decoration: none;
+} 
+
+.project2 a {
+  font-size: 16px;
+  padding: 10px;
+  background: #0119f3;
+  color: #fff;
+  text-decoration: none;
 }
 
 .media-Digital-Artist-flex .instagram-post-flex {
@@ -437,6 +464,7 @@ body {
 .games-flex img {
   cursor: pointer;
 }
+
 .instagram-post-flex {
   display: flex;
   flex-direction: row;

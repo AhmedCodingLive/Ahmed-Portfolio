@@ -66,19 +66,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  const p = document.querySelector(".about-text p"),
-        txt = p.innerText;
+
+
+    const section = document.querySelector(".about-text");
+  const paras = section.querySelectorAll("p");
+  const texts = [...paras].map(p => p.innerText); // save original text
   let lock = false;
 
-  function animate() {
-    p.innerHTML = txt.split(" ")
-      .map((w,i)=>`<span style="animation-delay:${i*0.1}s">${w}</span>`).join(" ");
+  function runAnimation() {
+    let delayOffset = 0; // keeps track of when each paragraph should start
+
+    paras.forEach((p, idx) => {
+      const words = texts[idx].split(" ");
+
+      // wrap each word in <span> with increasing delay + offset
+      p.innerHTML = words
+        .map((w,i)=>`<span style="animation-delay:${(i*0.1 + delayOffset).toFixed(2)}s">${w}</span>`)
+        .join(" ");
+
+      // calculate total time for this paragraph
+      const paragraphTime = words.length * 0.1 + 0.5; // 0.1s per word + 0.5s buffer
+      delayOffset += paragraphTime; // next paragraph starts after this one finishes
+    });
+
+    // lock until *all* paragraphs are done
     lock = true;
-    setTimeout(()=>lock=false, txt.split(" ").length*100+500);
+    const totalTime = delayOffset * 1000;
+    setTimeout(()=> lock=false, totalTime);
   }
 
-  new IntersectionObserver(e=>{
-    if(e[0].isIntersecting && !lock) animate();
-  },{threshold:.5}).observe(p.parentElement);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !lock) {
+        runAnimation();
+      }
+    });
+  }, { threshold: 0.5 });
 
+  observer.observe(section);
 })
