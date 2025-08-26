@@ -415,6 +415,9 @@ body {
   display: flex;
   justify-content: left;
 }
+.games-flex .game-btn{
+  
+}
 .games-flex img {
   cursor: pointer;
 }

@@ -1,3 +1,12 @@
+function goToAbout() {
+  
+  document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+}
+
+function goToBlog() {
+   document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
+ }
+
 document.addEventListener('DOMContentLoaded', function() { 
   //  main section
   const words = ['coder', 'YouTuber', 'designer', 'creator', 'developer'];
@@ -47,10 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // setInterval(changeText, 2000);
 
 
-  function goToAbout() {
-    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
-  }
-
+  
   window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar");
     if (window.scrollY > 10) {
@@ -59,12 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       navbar.classList.remove("scrolled");
     }
   });
-
-  function goToBlog() {
-    document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
-  }
-
-
+  
   const p = document.querySelector(".about-text p"),
         txt = p.innerText;
   let lock = false;
