@@ -1,80 +1,83 @@
-//  main section
-const words = ['coder', 'YouTuber', 'designer', 'creator', 'developer'];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const textChanger = document.querySelector('.text-changer');
+document.addEventListener('DOMContentLoaded', function() { 
+  //  main section
+  const words = ['coder', 'YouTuber', 'designer', 'creator', 'developer'];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const textChanger = document.querySelector('.text-changer');
 
-function typeWriter() {
-  const currentWord = words[wordIndex];
+  function typeWriter() {
+    const currentWord = words[wordIndex];
 
-  if (isDeleting) {
-    charIndex--;
-  } else {
-    charIndex++;
+    if (isDeleting) {
+      charIndex--;
+    } else {
+      charIndex++;
+    }
+
+    textChanger.textContent = currentWord.substring(0, charIndex);
+
+    // random typing speed for realism
+    let typeSpeed = isDeleting ? 80 : Math.random() * (200 - 100) + 100;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      typeSpeed = 1000; // pause at full word
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      typeSpeed = 400; // pause before typing next word
+    }
+
+    setTimeout(typeWriter, typeSpeed);
   }
 
-  textChanger.textContent = currentWord.substring(0, charIndex);
+  // Start typing
+  typeWriter();
 
-  // random typing speed for realism
-  let typeSpeed = isDeleting ? 80 : Math.random() * (200 - 100) + 100;
+  // const words = ['coder', 'YouTuber', 'designer'];
+  // let index = 0;
 
-  if (!isDeleting && charIndex === currentWord.length) {
-    typeSpeed = 1000; // pause at full word
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-    typeSpeed = 400; // pause before typing next word
+  // function changeText() {
+  //     const textChanger = document.querySelector('.text-changer');
+  //     textChanger.textContent = words[index];
+  //     index = (index + 1) % words.length;
+  // }
+
+  // setInterval(changeText, 2000);
+
+
+  function goToAbout() {
+    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
   }
 
-  setTimeout(typeWriter, typeSpeed);
-}
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 10) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
 
-// Start typing
-typeWriter();
-
-// const words = ['coder', 'YouTuber', 'designer'];
-// let index = 0;
-
-// function changeText() {
-//     const textChanger = document.querySelector('.text-changer');
-//     textChanger.textContent = words[index];
-//     index = (index + 1) % words.length;
-// }
-
-// setInterval(changeText, 2000);
-
-
-function goToAbout() {
-  document.getElementById("about").scrollIntoView({ behavior: "smooth" });
-}
-
-window.addEventListener("scroll", function () {
-  const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 10) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
+  function goToBlog() {
+    document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
   }
-});
-
-function goToBlog() {
-  document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
-}
 
 
-const p = document.querySelector(".about-text p"),
-      txt = p.innerText;
-let lock = false;
+  const p = document.querySelector(".about-text p"),
+        txt = p.innerText;
+  let lock = false;
 
-function animate() {
-  p.innerHTML = txt.split(" ")
-    .map((w,i)=>`<span style="animation-delay:${i*0.1}s">${w}</span>`).join(" ");
-  lock = true;
-  setTimeout(()=>lock=false, txt.split(" ").length*100+500);
-}
+  function animate() {
+    p.innerHTML = txt.split(" ")
+      .map((w,i)=>`<span style="animation-delay:${i*0.1}s">${w}</span>`).join(" ");
+    lock = true;
+    setTimeout(()=>lock=false, txt.split(" ").length*100+500);
+  }
 
-new IntersectionObserver(e=>{
-  if(e[0].isIntersecting && !lock) animate();
-},{threshold:.5}).observe(p.parentElement);
+  new IntersectionObserver(e=>{
+    if(e[0].isIntersecting && !lock) animate();
+  },{threshold:.5}).observe(p.parentElement);
+
+})
