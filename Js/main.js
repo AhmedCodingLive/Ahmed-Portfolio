@@ -1,49 +1,49 @@
 //  main section
-        const words = ['coder', 'YouTuber', 'designer', 'creator', 'developer'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const textChanger = document.querySelector('.text-changer');
+const words = ['coder', 'YouTuber', 'designer', 'creator', 'developer'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const textChanger = document.querySelector('.text-changer');
 
-        function typeWriter() {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                charIndex--;
-            } else {
-                charIndex++;
-            }
+function typeWriter() {
+  const currentWord = words[wordIndex];
 
-            textChanger.textContent = currentWord.substring(0, charIndex);
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
 
-            // random typing speed for realism
-            let typeSpeed = isDeleting ? 80 : Math.random() * (200 - 100) + 100;
+  textChanger.textContent = currentWord.substring(0, charIndex);
 
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 1000; // pause at full word
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 400; // pause before typing next word
-            }
+  // random typing speed for realism
+  let typeSpeed = isDeleting ? 80 : Math.random() * (200 - 100) + 100;
 
-            setTimeout(typeWriter, typeSpeed);
-        }
+  if (!isDeleting && charIndex === currentWord.length) {
+    typeSpeed = 1000; // pause at full word
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    typeSpeed = 400; // pause before typing next word
+  }
 
-        // Start typing
-        typeWriter();
+  setTimeout(typeWriter, typeSpeed);
+}
 
-        // const words = ['coder', 'YouTuber', 'designer'];
-        // let index = 0;
+// Start typing
+typeWriter();
 
-        // function changeText() {
-        //     const textChanger = document.querySelector('.text-changer');
-        //     textChanger.textContent = words[index];
-        //     index = (index + 1) % words.length;
-        // }
+// const words = ['coder', 'YouTuber', 'designer'];
+// let index = 0;
 
-        // setInterval(changeText, 2000);
+// function changeText() {
+//     const textChanger = document.querySelector('.text-changer');
+//     textChanger.textContent = words[index];
+//     index = (index + 1) % words.length;
+// }
+
+// setInterval(changeText, 2000);
 
 
 function goToAbout() {
@@ -63,3 +63,18 @@ function goToBlog() {
   document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
 }
 
+
+const p = document.querySelector(".about-text p"),
+      txt = p.innerText;
+let lock = false;
+
+function animate() {
+  p.innerHTML = txt.split(" ")
+    .map((w,i)=>`<span style="animation-delay:${i*0.1}s">${w}</span>`).join(" ");
+  lock = true;
+  setTimeout(()=>lock=false, txt.split(" ").length*100+500);
+}
+
+new IntersectionObserver(e=>{
+  if(e[0].isIntersecting && !lock) animate();
+},{threshold:.5}).observe(p.parentElement);

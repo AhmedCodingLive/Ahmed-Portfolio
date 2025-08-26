@@ -106,12 +106,6 @@ body {
   color: #000000;
 }
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 /* ========== main content ========== */
 .content-flex {
   display: flex;
@@ -133,36 +127,43 @@ body {
 }
 
 .content-flex .text p {
-    font-size: 20px;
+  font-size: 20px;
 }
+
+   .content-text .text p span {
+      opacity: 0;
+      display: inline-block;
+      animation: fadeIn 1s both;
+    }
+
 
 .content-flex button {
   margin-top: 24px;
   padding: 12px 15px;
   font-size: 20px;
-    color: #ffffff;
-    background-color: #0119f3;
-    font-weight: 700;
-    cursor: pointer;
+  color: #ffffff;
+  background-color: #0119f3;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .content-flex button:hover {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .content-flex img {
   flex: 0 0 300px;
-    max-width: 100%;
-    height: auto;
-    padding: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  
-  /* ========== About ========== */
-  #about {
-    padding-top: 80px;
-    min-height: 100vh;
+  max-width: 100%;
+  height: auto;
+  padding: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ========== About ========== */
+#about {
+  padding-top: 80px;
+  min-height: 100vh;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -179,7 +180,7 @@ body {
   align-items: center;
 }
 
-.about-flex .about-img{
+.about-flex .about-img {
   margin: 0 0 0 30px;
   max-width: 100%;
   width: 322px; /* or any fixed width that fits nicely */
@@ -189,11 +190,17 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* optional */
 }
 
-.about-text p{
+.about-text p {
   margin: 0px 50px;
   font-size: 24px;
   text-align: left;
   font-family: cursive;
+}
+
+.about-text p span {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 0.5s forwards;
 }
 
 .about-btn {
@@ -209,16 +216,16 @@ body {
 /* ========== Blog section ========== */
 #blog {
   width: 100%;
-    min-height: 100vh;
-    padding-bottom: 24px;
-    text-align: center;
-    padding-top: 40px;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.45);
-  }
-  
-  .blog-content h1 {
+  min-height: 100vh;
+  padding-bottom: 24px;
+  text-align: center;
+  padding-top: 40px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.45);
+}
+
+.blog-content h1 {
   font-size: 50px;
-  margin-bottom:50px;
+  margin-bottom: 50px;
   padding-top: 50px;
 }
 
@@ -390,7 +397,7 @@ body {
   display: flex;
   justify-content: left;
 }
-.games-flex img{
+.games-flex img {
   cursor: pointer;
 }
 .instagram-post-flex {
@@ -398,7 +405,6 @@ body {
   flex-direction: row;
   gap: 20px;
   padding: 20px;
-  
 }
 
 .insta-card {
@@ -407,7 +413,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   scroll-snap-align: start;
   padding: 10px;
 }
@@ -485,19 +491,48 @@ body {
 
 /* ========== Contact section ========== */
 
-#contact{
+#contact {
   height: 400px;
   padding-top: 50px;
   text-align: center;
   align-items: center;
+  justify-items: center;
   background: #000;
   color: #fff;
 }
-#contact h1{
+#contact h1 {
   font-size: 50px;
   padding: 10px;
 }
+footer {
+  text-align: center;
+  color: #fff;
+  background: #000;
+}
+/* ========== @keyframes ========== */
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
   .content-flex {
