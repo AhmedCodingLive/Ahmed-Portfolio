@@ -557,6 +557,7 @@ body {
 .insta-caption {
   font-size: 14px;
   color: #333;
+  word-wrap: break-word;
 }
 
 .see-more-btn {
