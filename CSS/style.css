@@ -650,13 +650,13 @@ body.fade-in {
 }
 
 /* ========== Contact section ========== */
-#contact, footer {
+#contact{
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-#contact.show, footer.show {
+#contact.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -698,6 +698,17 @@ footer {
   text-align: center;
   color: #fff;
   background: #000;
+}
+
+footer {
+  opacity: 0;
+  transform: translateY(0px); /* slide up */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+footer.show {
+  opacity: 1;
+  transform: translateY(0px);
 }
 /* ========== @keyframes ========== */
 
