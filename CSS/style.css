@@ -650,6 +650,16 @@ body.fade-in {
 }
 
 /* ========== Contact section ========== */
+#contact, footer {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#contact.show, footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 #contact {
   height: 300px;
