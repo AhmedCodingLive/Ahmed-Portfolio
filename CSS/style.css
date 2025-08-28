@@ -354,6 +354,23 @@ body.fade-in {
 }
 
 /* ========== Media ========== */
+.media-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Show when scrolled into view */
+.media-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fully hidden (like if height is too small) */
+.media-section.hidden {
+  display: none !important;
+}
+
 #media {
   width: 100%;
   min-height: 100vh;
@@ -369,7 +386,7 @@ body.fade-in {
   /* color: #fff; */
   font-size: 40px;
   margin-bottom: 100px;
-  padding-top: 40px;
+  padding-top: 100px;
 }
 
 #media h2 {

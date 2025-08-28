@@ -34,22 +34,33 @@ new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 }).observe(container);
 
-// main content 
+
+// main content
 const content = document.getElementById("content");
 
-new IntersectionObserver(entries => {
+const contentObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      content.classList.add("show");
+    if (e.intersectionRatio > 0.6) {  
+      // 60% visible → play animation
+      content.classList.remove("show");
+      void content.offsetWidth; 
+      setTimeout(() => {
+        content.classList.add("show");
+      }, 500);
     } 
+    // only reset when it's < 0.1 (almost gone)
+    else if (e.intersectionRatio < 0.1) { 
+      content.classList.remove("show");
+    }
   });
-}, { threshold: 0.1 }).observe(content);
+}, { threshold: [0, 0.1, 0.6, 1] });
 
+contentObserver.observe(content);
 
 // about page function
 const about = document.getElementById("about");
 
-const observer = new IntersectionObserver(entries => {
+const aboutObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.intersectionRatio > 0.6) { 
       // 60% visible → play animation
@@ -57,7 +68,7 @@ const observer = new IntersectionObserver(entries => {
       void about.offsetWidth; 
       setTimeout(() => {
         about.classList.add("show");
-      }, 800);
+      }, 500);
     } 
     // only reset when it's < 0.1 (almost gone)
     else if (e.intersectionRatio < 0.1) { 
@@ -66,7 +77,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: [0, 0.1, 0.6, 1] });
 
-observer.observe(about);
+aboutObserver.observe(about);
 
 
 
@@ -86,21 +97,60 @@ function goToAbout() {
 
 // blog
 
+// 📌 Animate the #blog section when it scrolls into view
+// - When 60% of the section is visible → fade in (add .show)
+// - When less than 10% visible → reset (remove .show)
+// - Uses IntersectionObserver for scroll detection
+
 const blog = document.getElementById("blog");
 
-new IntersectionObserver(entries => {
+const blogObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      blog.classList.add("show");
-    } else {
-      blog.classList.remove("show"); // restart when you leave
+    if (e.intersectionRatio > 0.6) {
+      // 🔄 Restart animation: remove → force reflow → add again
+      blog.classList.remove("show"); 
+      void blog.offsetWidth; // forces browser to re-calc layout
+      setTimeout(() => {
+        blog.classList.add("show"); // re-apply animation
+      }, 500); // small delay for smooth restart
+    } 
+    else if (e.intersectionRatio < 0.1) {
+      // 🔁 Reset when almost out of view
+      blog.classList.remove("show");
     }
   });
-}, { threshold: 0.3 }).observe(blog);
+}, { threshold: [0, 0.1, 0.6, 1] });
+
+blogObserver.observe(blog);
 
 function goToBlog() {
    document.getElementById("blog").scrollIntoView({ behavior: "smooth" });
  }
+
+const sections = document.querySelectorAll(".media-section");
+
+// Observer for scroll visibility
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    // Check if element has enough height to be meaningful
+    if (entry.target.offsetHeight < 50) {
+      entry.target.classList.add("hidden");
+      return;
+    } else {
+      entry.target.classList.remove("hidden");
+    }
+
+    // If scrolled into view
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
+}, { threshold: 0.3 }); // trigger when 30% visible
+
+sections.forEach(section => observer.observe(section));
+
 
 // DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
