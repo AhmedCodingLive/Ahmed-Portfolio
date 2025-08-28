@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 
-    const section = document.querySelector(".about-text");
+  const section = document.querySelector(".about-text");
   const paras = section.querySelectorAll("p");
   const texts = [...paras].map(p => p.innerText); // save original text
   let lock = false;
@@ -181,7 +181,6 @@ const aboutObserver = new IntersectionObserver(entries => {
 }, { threshold: [0, 0.1, 0.6, 1] });
 
 aboutObserver.observe(about);
-
 
 
 function goToAbout() {
