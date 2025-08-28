@@ -10,11 +10,11 @@
     <title>Ahmed Portfolio</title>
 </head>
 
-<body>
+<body id="body">
     <header class="container">
         <nav class="navbar">
             <div class="logo">
-                <h1><span>Ahmed</span> Portfolio</h1>
+                <h1><a href="#body" onclick="bodyRefresh(); return false;"><span>Ahmed</span> Portfolio</a></h1>
             </div>
             <ul class="nav-links">
                 <li><a href="#content">Home</a></li>
@@ -46,13 +46,12 @@
                     <br />
                     <strong>For more information, click the blue button below.</strong>
                 </p>
-                <br />
+                
+                <button onclick="goToAbout()">Click Me</button>
+                <br><br>
                 <a href="https://www.youtube.com/channel/UC4k9jNHpuWzlhmXDMbdzxiw?sub_confirmation=1"><i
                         class="fa-brands fa-youtube"></i></a>
                 <a href="https://www.instagram.com/ahmedentertainment2018/"><i class="fa-brands fa-instagram"></i></a>
-                <br />
-
-                <button onclick="goToAbout()">Click Me</button>
             </div>
 
             <img src="./Images/main images/ahmed photo.png" alt="Ahmed photo with blue background" width="500px" />
